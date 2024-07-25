@@ -1,4 +1,7 @@
+//
+An efficient static recursive method finds the smallest positive integer (excluding 0) that is not present in an unordered array of integers
 
+//
 public class 2024_75{
 
 	public static int what(int[] a)
