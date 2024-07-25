@@ -1,0 +1,31 @@
+
+public class 2024_75rec {
+
+	public static void main(String[] args) {
+	int arr[]= {1 ,2 ,0 ,4 ,-1};
+	System.out.println(countEqualDiff(arr,0,0,0,"","",0,0));
+	}
+
+	
+	
+	public static int countEqualDiff (int [] arr, int i , int sum1, int sum2, String s1,String s2,
+			int count1, int count2) {
+ 
+		    if (Math.abs(sum1-sum2) == Math.abs(count1-  count2 ) &&  count1+count2==arr.length )  {
+			
+		     System.out.println(s1+"\tsum1= " + sum1+ " count1 = "+count1+
+		    		  "\n"+ s2 +"\tsum2= " + sum2+ " count2 = "+count2+	"\n" );
+		     return 1;
+		 
+		}
+	 
+		  
+		if (i>=  arr.length ) return 0;
+		
+		return countEqualDiff(arr, i+1, sum1+arr[i], sum2, s1+arr[i]+" ", s2, count1+1,count2)+
+				countEqualDiff(arr, i+1, sum1, sum2+arr[i], s1, s2+arr[i]+" ",count1,count2+1);
+		 
+	}
+	
+	
+}
