@@ -1,6 +1,11 @@
+//
+A static recursive method takes an array of integers and checks 
+if the array can be divided into two disjoint, complementary sets
+such that the absolute difference between their sums equals the difference in the number of elements in each set
 
+//
 public class 2024_75rec {
-
+        //driver//
 	public static void main(String[] args) {
 	int arr[]= {1 ,2 ,0 ,4 ,-1};
 	System.out.println(countEqualDiff(arr,0,0,0,"","",0,0));
