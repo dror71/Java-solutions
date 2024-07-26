@@ -1,0 +1,30 @@
+public class 2024_63eff {
+
+	public static void main(String[] args) {
+//driver   ///
+	 	int[] a = {1, 3, 4, 5,10};
+		int[] b = {1, 4, 8, 13, 23};
+		int k=2, x=4;
+		System.out.println("a[k]="+get(b, k));
+		System.out.println("k="+find(b, x));
+		
+};
+
+
+public static int get(int[] b , int k) {
+		if (k>b.length-1) return -1;
+		if (k==0) return b[0];
+		return b[k]-b[k-1];
+	}
+
+	public static int find(int[] b , int x) {
+		int left=0,right=b.length ;
+		while(left<=right) {
+			int med= left+ (left+right)/2;
+			if (get(b, med)==x) return med;
+			if (get(b, med)>x) right=med;
+			else left=med+1 ;
+		}
+		return -1;
+		
+	}
