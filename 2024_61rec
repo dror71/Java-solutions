@@ -1,0 +1,41 @@
+public class 2024_61rec {
+
+	public static void main(String[] args) {
+ //driver  //
+		int m[][]= {
+		{4, 1, 9, 3, 25},
+		{24, 23, 15, 16, 5},
+		{13, 12, 15, 16, 14},
+		{17, 11, 18, 19, 20},
+		{10, 2, 8, 7, 6},
+
+};
+		int []	mem  = new int[]{Integer.MAX_VALUE};
+		System.out.println(minOfMax( m,0,0,Integer.MIN_VALUE ,mem));
+
+	}
+	
+	private static int minOfMax(int[][]m, int i,int j,int max ,int mem[]) {
+		 
+		if (i<0 || i>m.length-1 ||  j<0 || j>m[0].length-1 || m[i][j]==-1) return 0;
+		if (i==m.length-1  && j==m[i].length-1 )
+			{
+			max=Math.max(m[i][j], max);
+			mem[0]=Math.min(mem[0], max);
+			return max;
+			}
+		
+		max=Math.max(m[i][j], max);
+		int temp=m[i][j];
+		m[i][j]=-1;
+		int a=minOfMax(m, i+1, j, max,mem);
+		int b=minOfMax(m, i-1, j, max,mem);
+		int c=minOfMax(m, i, j+1, max,mem);
+		int d=minOfMax(m, i, j-1, max,mem);
+		m[i][j]=temp;
+		return mem[0];
+	}
+
+	
+
+}
