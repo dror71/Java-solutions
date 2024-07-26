@@ -1,0 +1,33 @@
+public class 2024_63rec {
+
+	public static void main(String[] args) {
+	//driver//
+		int m[][]= {
+		{-2 ,-3, 3},
+		{-5, -10, 1},
+		{10 , 30  ,-5},
+
+};
+		int i=m.length-1,j=m[0].length-1;
+		
+		int min[]=new int [1];
+	    min[0]=Integer.MAX_VALUE;
+        System.out.println(minp(m, i, j,0 ,min));
+		 
+}
+	
+	private static int minp(int[][] m,int i,int j,int num,int min[]) {
+		if (i<0 || j<0 ) return 0;
+		if (i==0 && j==0) 
+			{
+			 num+=m[i][j];
+			 min[0]=Math.min(min[0],Math.abs(num)+1);
+			return num;
+			}
+		  
+		 minp(m,   i-1  , j,  num+m[i][j],min  );
+		 minp(m,   i  , j-1,  num+m[i][j],min );
+		 
+		return min[0];
+	}
+}
