@@ -1,0 +1,24 @@
+public class 2024_69rec {
+
+public static void main(String[] args) {
+           // driver //
+            int sum=7;
+	    System.out.println("number of monotone series: "+ count(sum));
+	}
+
+	private static int count(int sum) {
+		return count(sum,1,sum,"");
+	}
+
+public static int count(int sum, int i, int acc,String s) {
+		
+		if (acc<=0)
+			{
+			
+			System.out.println( "( " +s +" )");
+			return 1;
+			}
+		if (i>acc) return 0;
+		return count(sum,i+1,acc-i,s+i+" ")+count(sum,i+1,acc,s);
+	}
+}
