@@ -1,0 +1,25 @@
+public class 2023_54eff {
+
+	public static void main(String[] args) {
+	     //driver//
+	    int arr[]= {10 ,3 ,40, 20, 50, 70, 80};
+	    int num=90;
+	    System.out.println(findAlmostSorted(arr,num));
+	    
+	}
+
+	private static int findAlmostSorted(int[] arr,int num) {
+		int left=0,right=arr.length;
+		while(left<right) {
+			int med=(left+right)/2;
+			if (arr[med]==num) return med;
+		     
+			if (med>0 && arr[med]<arr[med-1] && arr[med-1]>=num)
+				right=med;
+			else if (arr[med]>arr[med-1] && arr[med]>num) right=med; 
+			else 
+				left=med+1;
+		}
+		
+		return -1;
+	}
