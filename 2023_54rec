@@ -1,0 +1,32 @@
+ public class 2023_54rec {
+
+	public static void main(String[] args) {
+	     //driver//
+	    int num=819819000,x=4;
+	    System.out.println("number of exponent appearances: "+  selectedPrimes(num, x,2,0,0));
+	    
+	}
+	
+	private static int selectedPrimes(int num, int x,int i,int count,int appear) {
+		 
+		if (num<=2   ) {
+			  if (x==count) {
+				 System.out.println(i+"^"+count);
+				 appear++;
+			} 
+			 
+			return appear ;
+		}
+		
+		else if (num%i==0) return selectedPrimes(num/i, x, i,count+1,appear);
+		
+		else {
+			 if (x==count) {
+				 System.out.println(i+"^"+count);
+				 appear++;
+			 }
+			return selectedPrimes(num, x, i+1,0,appear );	
+		}
+		
+		 	}
+ 
