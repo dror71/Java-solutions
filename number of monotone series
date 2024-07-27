@@ -1,7 +1,7 @@
 public class 2024_69rec {
 
 public static void main(String[] args) {
-// driver //
+     // driver //
             int sum=7;
 	    System.out.println("number of monotone series: "+ count(sum));
 	}
