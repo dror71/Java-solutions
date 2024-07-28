@@ -1,0 +1,39 @@
+public class 2023_63eff {
+
+	public static void main(String[] args) {
+	   int arr[]= {2, 6, 1, 9, 7, 3, 1, 4, 1, 8};
+	   int num=14;
+	  System.out.println( findSmallestSubarrayLen( arr, num));
+	}
+
+	private static int findSmallestSubarrayLen(int[] arr, int num) {
+		int left=0,right=left,sum=arr[left],
+				min=Integer.MAX_VALUE,
+				Lm=0,Rm=0;
+		while (right<arr.length  ) {
+		
+			while (sum>num)
+				{
+				 	 System.out.println("Subarray found ["+left+"-"+right+"]");
+					if (right-left<min) {
+						min=right-left;
+						Lm=left; Rm=right;
+					}
+					sum-=arr[left];
+					++left;  
+					
+					
+				}
+			if (right==arr.length-1) break;
+			sum+=arr[++right];
+			
+		}
+		if (min==Integer.MAX_VALUE) {
+			System.out.println("No subarray exists");
+			return 0;
+		}
+		System.out.println("Smallest Subarray found ["+Lm+"-"+Rm+"]");
+		return Rm-Lm;
+	}
+
+}
