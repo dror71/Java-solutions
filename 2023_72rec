@@ -1,0 +1,35 @@
+public class working {
+
+	public static void main(String[] args) {
+  //driver//
+	  int mat[][]= {
+   {0, 1, 0, 0, 0, 1, 1, 0, 0, 0},
+   {1, 0, 1, 1, 0, 0, 0, 0, 0, 1},
+   {0, 1, 0, 0, 0, 1, 1, 0, 0, 1},
+   {0, 1, 0, 0, 0, 0, 1, 1, 0, 0},
+   {0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+   {1, 0, 1, 0, 0, 0, 0, 1, 1, 0},
+   {1, 0, 1, 1, 0, 0, 0, 1, 1, 0},
+   {0, 0, 0, 1, 0, 1, 1, 0, 0, 1},
+   {0, 0, 0, 0, 0, 1, 1, 0, 0, 0},
+   {0, 1, 1, 0, 1, 0, 0, 1, 0, 0},
+	  };
+ 
+	  System.out.println("number of cycles: "+friend3(mat,0,1,2));
+	}
+
+	private static int friend3(int[][] mat,int i,int j,int k) {
+		if (i>mat.length ) return 0;
+		if (j>mat[0].length-1  ) return friend3(mat, i+1, i+2, i+3);
+		if (k>mat[0].length-1  ) return friend3(mat, i, j+1, j+2);
+		 
+		 if (i!=j && mat[i][j]==1) {
+			 if ( mat[i][k]==1 && mat[k][j]==1 && mat[k][i]==1 ) {
+				 System.out.println(i+"⇄"+j+"⇄"+k);
+				 return friend3(mat, i, j ,k+1 )+1;
+			 }
+		 }
+		return friend3(mat, i, j,k+1   );
+	}
+ 
+}
