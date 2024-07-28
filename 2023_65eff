@@ -1,0 +1,26 @@
+public class 2023_65eff {
+
+	public static void main(String[] args) {
+//driver//
+	  int a[]= {2,3,8,27};
+	  int k=30;
+	  System.out.println( superInc(a,k));
+	}
+
+	public static boolean superInc (int [] arr, int k) {
+	
+		for (int i=arr.length-1;i>=0;i--) {
+			 
+			k-=arr[i];  
+			if (k<0) {
+				k+=arr[i];
+			}
+			 if (k==0)return true;
+				
+		}
+		return false;
+		
+	}
+	 
+
+}
