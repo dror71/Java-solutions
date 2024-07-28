@@ -1,0 +1,25 @@
+public class 2023_65rec {
+
+	public static void main(String[] args) {
+   //driver//
+	  int n =4;
+	  System.out.println( countPairs(n,0,"",0));
+	}
+
+	public static int countPairs (int n,int i,String s,int count) {
+		 
+		if (i<0) return 0;
+		if (count==2*n)
+		 {
+			 if (i==0) {
+					System.err.println(s);
+					return 1;
+				}
+			 else return 0;
+		 }
+
+		return countPairs(n, i+1,s+"(",count+1)+countPairs(n, i-1,s+")",count+1);
+		
+	}
+
+}
