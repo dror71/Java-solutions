@@ -1,0 +1,19 @@
+public class 2023_79rec {
+public static void main(String[] args) {
+	//driver//  
+  int arr[]=   {   1,1, 4, 10, 10, 4 ,10 ,10, 10}; 
+     System.out.println(longestAlmostPalindrome(arr,0,arr.length-1,Integer.MIN_VALUE)); 
+      
+	}
+	private static int  longestAlmostPalindrome(int[] arr,int i,int j,int diff) {
+		if (i>j) return 0;
+		if (arr[i]==arr[j]) {
+			diff= (j-i+1);
+			return Math.max(longestAlmostPalindrome(arr, i+1, j-1,diff),diff);
+		}
+		return  Math.max(longestAlmostPalindrome(arr,i+1,j,diff)
+				,longestAlmostPalindrome(arr, i, j-1,diff)) ;
+	}
+ 
+
+}
