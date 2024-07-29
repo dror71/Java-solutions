@@ -8,26 +8,23 @@ public class 2023_79eff {
      System.out.println( findNumber(arr)); 
       
 	}
-	private static int findNumber(int[] arr) {
-		int l=0,r=arr.length-1 ,mid=0;
-		 if ( Missing(arr, r) ) return Integer.MIN_VALUE;
-		 while (l<r ) {
-			 mid=(l+r)/2;
-			 if (arr[mid]==arr.length-mid) 
-				 	r=mid ; 
-			 else {
-				   	while(arr[mid]-arr[mid+1]==1) {
-				 		mid++;
-					  }
-				 	return (arr[mid]+arr[mid+1])/2;
-				 	 
-			 }
-				 
-						 }
-		return (arr[mid]+arr[r])/2;
+//find any missing number in O(logn) ////
+		private static int findNumber(int[] arr) {
+		int l=0, r=arr.length-1;
+		if (Missing(arr, r)==0) return Integer.MIN_VALUE;
+		while (l<r) {
+			int mid=(r+l)/2;
+			if (Missing(arr, mid)>0) {
+				r=mid;
+			}
+			else
+				l=mid+1;	
+			}
+		 
+		return (arr[r]+1-Missing(arr, r-1));
 	}
- 
-	private static boolean Missing(int arr[], int index) {
-		return  (arr[0]-arr[index]-index)==0;
+	
+	private static int Missing(int arr[], int index) {
+		return  (arr[0]-arr[index]-index) ;
 	}
 	}
