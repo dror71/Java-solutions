@@ -1,0 +1,34 @@
+public class working {
+
+	public static void main(String[] args) {
+	      //driver//
+		     int arr[][]=   { 
+		    		 {2,3},
+		    		 {4,1},
+		     };
+		 
+     System.out.println(greatRout(arr,0, 0, 0 , "",0 )) ;
+          
+	}
+
+	private static int greatRout(int[][] arr, int i, int j, int sum, String s,int steps ) {
+		if (i==arr.length-1 && j==arr.length-1) 
+		{  
+		   s+="("+i+","+j+")" ; 
+		   sum+=1;  
+		   System.out.println(s+"\t" +sum);  
+		return sum ;
+		}
+		if (i<0 || i>arr.length-1 || j<0 || j>arr[0].length-1 || steps> arr[i][j] ) return 0;
+		
+		 s+="("+i+","+j+")"+" --> ";
+	 
+		 int a=greatRout(arr, i+1, j, sum+arr[i][j]  ,s,steps+1)  ;
+	   int b=greatRout(arr, i-1, j, sum+arr[i][j] ,s,steps+1)  ;
+		 int c=greatRout(arr, i, j+1, sum+arr[i][j] ,s,steps+1)  ;
+		 int d=greatRout(arr, i, j-1, sum+arr[i][j] ,s,steps+1) ;
+		return Math.max(Math.max(a, b), Math.max(c, d));
+		 
+			}
+	
+}
