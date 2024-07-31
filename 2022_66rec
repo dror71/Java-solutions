@@ -16,19 +16,20 @@ public class 2022_66rec {
 	}
 	public static int maxPath (int [][] arr)
 	{
-		if (maxPath(arr, 0, 0, 0)==arr[0][0]) return Integer.MIN_VALUE;
-		else return maxPath(arr, 0, 0, 0);
+		return maxPath(arr, 0, 0);
 		
 	}
-	private static int maxPath(int[][] arr, int i, int j,int sum) {
+	private static int maxPath(int[][] arr, int i, int j) {
 		
-		if (i<0 || i>arr.length-1 || j<0 || j>arr[0].length-1 || arr[i][j]==-1) return 0;
-		if (i==arr.length-1 && j==arr.length-1) return 1;
+		if (i<0 || i>arr.length-1 || j<0 || j>arr[0].length-1 || arr[i][j]==-1) return Integer.MIN_VALUE;
+		if (i==arr.length-1 && j==arr.length-1) return arr[i][j];
 		
 		int units=arr[i][j]%10, tens=arr[i][j]/10;
-		int a=maxPath(arr, i+tens, j+units, sum+arr[i][j] ) +arr[i][j] ;
-		int b=maxPath(arr, i+units, j+tens, sum+arr[i][j] ) +arr[i][j] ;
-		return  Math.max(a, b);
+		int a=maxPath(arr, i+tens, j+units, sum+arr[i][j] );
+		int b=maxPath(arr, i+units, j+tens, sum+arr[i][j] );
+		int r= Math.max(a, b);
+		if (r == Integer.MIN_VALUE) return r;
+		return r+arr[i][j];
 	 
 	 
  
