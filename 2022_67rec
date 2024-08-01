@@ -1,0 +1,44 @@
+public class 2022_67rec {
+
+
+	public static void main(String[] args) {
+	     //driver// 
+		     int mat[][]=   { 
+		    		 { 1, 2, 3, 2, 0, 1, 2},
+		    		 { 0, 1, 0, 0, 0, 3, 0},
+		    		 { 0, 0, 1, 0, 0, 3, 0},
+		    		 { 5, 0, 0, 1, 0, 0, 0},
+		    		 { 7, 0, 0, 0, 1, 0, 0},
+		    		 { 8, 0, 0, 0, 0, 1, 0},
+		    		 { 1, 0, 0, 0, 0, 0, 0},
+		     };
+		    int x=3,size=2;
+		    System.out.println(isIdentity(mat, x, size));
+		    System.out.println(maxMatrix(mat));
+	}
+	
+	public static boolean isIdentity (int[][] mat, int x, int size)
+ {
+	return isIdentity(mat, x, x,  x ,size);
+}
+
+	private static boolean isIdentity(int[][] mat, int i, int j,int x, int size) {
+		if (i>=size+x) return true;
+		if (i==j) {
+			if (mat[i][j]!=1)  return false;
+		}
+		else {
+			if  (mat[i][j]!=0) return false; 
+		}
+		 
+		if (j>=size+x) return isIdentity(mat, i+1, x, x, size);
+	return isIdentity(mat, i, j+1, x,size);
+	}
+	public static int maxMatrix(int[][] mat) {
+		return maxMatrix(mat, 0,  mat.length );
+	}
+	public static int maxMatrix(int[][] mat,int x,  int size) {
+		if (isIdentity(mat, x,size)) return size;
+	return maxMatrix(mat, x+1, size-2 ) ;
+	}
+}
