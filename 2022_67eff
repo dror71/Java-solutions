@@ -1,0 +1,28 @@
+public class 2022_67eff {
+
+	public static void main(String[] args) {
+ // driver //
+		    int a[]={22,24,26,28,34,36,38,40};
+		    System.out.println(findMissingIndex(a));
+	}
+	
+	public static int findMissingIndex (int []a) {
+		int L=0,R=a.length-1,mid=0, d;
+		int d1= a[1] - a[0];
+		int d2=a[2] - a[1];
+		if (Math.abs(d2) < Math.abs(d1) ) d = d2;
+		else
+			d = d1;
+		
+		while (L< R) {
+			mid=(L+R)/2;
+			if ( a[mid] == a[0] + mid*d ) {	
+				L= mid+1;
+			}
+			else { 
+				R = mid ;
+			}
+		}
+		return (L==a.length-1) ? a.length : L  ;
+}
+}
