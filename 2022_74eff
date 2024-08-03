@@ -1,0 +1,25 @@
+public class 2022_74eff {
+
+	public static void main(String[] args) {
+	      //driver//
+		int arr[]= {1,2,3,3,2,2}; 
+    System.out.println(findDuplicate(arr ));
+ 		 
+	}
+	
+	public static int findDuplicate (int []arr) {
+	   
+        while (arr[0] != arr[arr[0]]) 
+        {
+        	swap(arr,arr[arr[0]] ,arr[0]);
+       }
+        return arr[0];
+	}
+
+	private static void swap(int a[],int i, int j) {
+		int temp=j;
+		a[0]=i;
+		a[j]=temp;	
+		
+	}	
+}
