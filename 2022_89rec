@@ -1,0 +1,27 @@
+public class 2022_89rec {
+
+	public static void main(String[] args) {
+ //driver//
+		String str1="abcd", str2="abc";
+		System.out.println(strStep(str1,str2,1));
+
+	}
+
+	private static boolean isjump(String str1, String str2, int step) {
+		if (str1.length()<str2.length() || str1.length()<=0 ) return false;
+		if (str2.length()<=0) return true;
+		 
+		if (str1.charAt(0)==str2.charAt(0)) return isjump(str1.substring(step),
+				str2.substring(1), step);
+		return false;
+		
+	}
+	public static int strStep(String str1, String str2,int i) {
+		if (i>=str1.length()) return -1;
+		if (isjump(str1, str2, i)) return i;	
+		return strStep(str1, str2, i+1);
+		 
+		  
+	}
+
+}
