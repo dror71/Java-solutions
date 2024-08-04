@@ -1,0 +1,28 @@
+public class 2022_96rec {
+	
+
+	public static void main(String[] args) {
+	      int num=3,result=36,maxOp=4;
+		System.out.println(calc(num,result,num,maxOp,0,""));
+		  
+	}
+
+	private static int calc(int num, int result,int op, int maxOp, int count_op,String s) {
+	 
+			if (op==result ) { 	
+			s+=num;
+			System.out.println(s+" = "+op);
+			return 1;
+	}
+	 	 
+		if ( count_op <  maxOp  ) {
+		s+=num;
+		int a=calc(num,result, op+num, maxOp, count_op+1 ,s+" + ");
+		int b=calc(num,result, op-num, maxOp, count_op+1 ,s+" - ");
+		int c=calc(num,result, op/num, maxOp, count_op+1 ,s+" / ");
+		int d=calc(num,result, op*num, maxOp, count_op+1 ,s+" * ");
+		
+		return a+b+c+d;
+		}
+		return 0;
+	}
