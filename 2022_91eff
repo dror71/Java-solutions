@@ -1,0 +1,99 @@
+public class 2022_91eff {
+
+	public static void main(String[] args) {
+ //driver//
+		 //  int arr[] = {-4,1,-8,9,6};
+		int arr[]= {-1,-4,-3,-2,-5};
+		  findTriplet(arr);
+		  
+	}
+	
+		  private static void findTriplet(int[] arr) {
+	
+		int aux[]=new int [8];
+		aux[7]=aux[6]=aux[5]=Integer.MIN_VALUE;
+		  /*  aux       [0]     [1]     [2]    [3]     [4]     [5]     [6]     [7]  
+		                pos  > pos   > pos  > neg  <  neg  >  neg  <  neg  <  neg
+		  *
+		  *
+		  */
+		  for (int i=0;i<arr.length;i++) { 
+			  if (arr[i]>0) {
+				  if (arr[i]>aux[0]) {
+					  aux[2]=aux[1];
+					  aux[1]=aux[0];
+					  aux[0]=arr[i];
+				  }
+				  else
+				  {
+					  if (arr[i]>aux[1])
+					  {
+						  aux[2]=aux[1];
+						  aux[1]=arr[i];
+					  }
+					  else
+					  {
+						  if (arr[i]>aux[2])
+						  {
+							  aux[2]=arr[i];
+						  }
+					  }
+				  }
+			  }else    // negative numbers check
+			  {
+				  if (arr[i] < aux[3])
+				  {
+					  aux[4]=aux[3];
+					  aux[3]=arr[i];
+				  }else
+				  {
+					  if (arr[i]<aux[4])
+					  {
+						  aux[4]=arr[i];
+					 
+				  }
+			  }
+			   if (arr[i] > aux[5])
+			   {
+				   aux[7]=aux[6];
+				   aux[6]=aux[5];
+				   aux[5]=arr[i];
+			   }
+			   else
+			   {
+				   if (arr[i] > aux[6])
+				   {
+					   aux[7]=aux[6];
+					   aux[6]=arr[i];
+				   }
+				   else
+				   {
+					   if (arr[i] > aux[7])
+					   {
+						   aux[7]=arr[i];
+					   }
+				   }
+			   }
+		  }
+	  }
+		int product1=aux[0]*aux[1]*aux[2];
+		int product2=aux[3]*aux[0]*aux[4];
+		int product3=aux[5]*aux[6]*aux[7];
+		if (product1==0 && product2==0 && product3 !=0)
+			System.out.println(aux[5]+" * "+aux[6]+" * "+aux[7]+ " = " + product3);
+		else {
+		if (product1 == Math.max(Math.max(product1, product2),product3))
+		
+				System.out.println(aux[0]+" * "+aux[1]+" * "+aux[2]+ " = " + product1);
+		else
+		{
+			if  (product2 == Math.max(Math.max(product1, product2),product3))
+					System.out.println(aux[3]+" * "+aux[4]+" * "+aux[0] + " = " + product2);
+			else
+					System.out.println(aux[5]+" * "+aux[6]+" * "+aux[7]+ " = " + product3);
+		}
+		
+		}
+		  }
+
+}
