@@ -1,12 +1,11 @@
 public class 2024_69eff {
-
+//eff: O(n)  ///
 	public static void main(String[] args) {
- //driver //
+ 	//driver //
 	    int arr[] =new int [4];
 	    int s=17;
 	    minNumWithSum(arr,s);
-	    
-	   print(arr);
+	    print(arr);
 	    
 	}
 	
