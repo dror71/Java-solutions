@@ -1,5 +1,5 @@
 public class 2023_54eff {
-
+//eff: O(logn) //
 	public static void main(String[] args) {
 	     //driver//
 	    int arr[]= {10 ,3 ,40, 20, 50, 70, 80};
