@@ -1,7 +1,7 @@
 public class 2023_65eff {
-
+//eff: O(n) //
 	public static void main(String[] args) {
-//driver//
+	//driver//
 	  int a[]= {2,3,8,27};
 	  int k=30;
 	  System.out.println( superInc(a,k));
