@@ -1,0 +1,41 @@
+public class 2022_96eff {
+	
+// eff: O(logn) //
+	public static void main(String[] args) {
+//driver//
+	      int a[]= {3,0,0,4,7,9,0,0,0,0,11,15,0,19,20,0,0,31,40,0,41};
+	      int num=41;
+	      System.out.println(kalmostSearch(a,num));
+		  
+	}
+
+	private static int kalmostSearch(int[] a, int num) {
+		int L=0,R=a.length-1,mid=0;
+		while (L<R) {
+			 mid=(L+R)/2;
+			
+			if ( (a[mid]==0 && a[mid-1]==0) ) {
+				while(a[mid]==0 )
+				{
+					mid++;
+				}
+			}
+			if (a[mid]==0 && a[mid+1]==0) {
+				while(a[mid]==0 )
+				{
+					mid--;
+				}
+			}
+			if (a[mid]==0) {
+				mid++;
+			}
+			if (a[mid]==num) return mid;
+			if (a[mid]<num) L=mid+1 ;
+			else
+				R=mid-1;
+		}
+		return -1;
+	}
+
+
+}
