@@ -1,7 +1,7 @@
 public class 2022_89eff {
-
+//eff: O(n)
 	public static void main(String[] args) {
-//driver//
+	//driver//
 		 int a[]= {1,-2,3,-4,-5,4,2,-4,6,-2};
 		System.out.println(longestSubarray(a));
 
