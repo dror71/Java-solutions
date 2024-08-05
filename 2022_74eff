@@ -1,5 +1,5 @@
 public class 2022_74eff {
-
+//eff: O(n)
 	public static void main(String[] args) {
 	      //driver//
 		int arr[]= {1,2,3,3,2,2}; 
