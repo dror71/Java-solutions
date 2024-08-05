@@ -1,0 +1,33 @@
+public class 2021_60eff {
+	// eff: O(n)  //
+
+	public static void main(String[] args) {
+      //driver //
+	    	 int a[]={1,4,13,6,0,19};
+	       int k=22 ;
+  System.out.println(smallestSub(a,k));		  
+	}
+
+	static int smallestSub(int a[], int k) 
+                
+       	 {
+		  int n=a.length;
+		  int sum = 0, min_len = n + 1; 
+	       int Left = 0, Right = 0; 
+		        while (Right < n) { 
+		        
+		            while (sum <= k && Right < n) {
+		            	  sum += a[Right++]; 
+		            }
+		              
+		            while (sum > k && Left < n) { 
+		            
+		                if (Right - Left < min_len) {
+		                    min_len = Right - Left; 
+		                }
+		                sum -= a[Left++]; 
+		            } 
+		        } 
+		        return min_len; 
+		    }
+    }
