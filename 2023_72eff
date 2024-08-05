@@ -1,5 +1,7 @@
 public class 2023_72eff {
+//eff: O(logn) //
 public static void main(String[] args) {
+	//driver//
 	  // int arr[]= {10,20,15,2,23,67,90};
 		int arr[]=   {20 ,10, 2, 5};
      System.out.println(findPeak(arr)); 
