@@ -1,15 +1,14 @@
 public class 2023_79eff {
-
-	public static void main(String[] args) {
-
+//eff: O(logn) //
+     public static void main(String[] args) {
       //driver //
-      int arr[]= {10, 8,7,6,5,4,2,1};
+      	int arr[]= {10, 8,7,6,5,4,2,1};
 	 
-     System.out.println( findNumber(arr)); 
+     	System.out.println( findNumber(arr)); 
       
 	}
-//find any missing number in O(logn) ////
-		private static int findNumber(int[] arr) {
+
+	private static int findNumber(int[] arr) {
 		int l=0, r=arr.length-1;
 		if (Missing(arr, r)==0) return Integer.MIN_VALUE;
 		while (l<r) {
@@ -21,7 +20,7 @@ public class 2023_79eff {
 				l=mid+1;	
 			}
 		 
-		return (arr[r]+1-Missing(arr, r-1));
+	return (arr[r]+1-Missing(arr, r-1));
 	}
 	
 	private static int Missing(int arr[], int index) {
