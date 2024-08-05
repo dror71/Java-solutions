@@ -1,6 +1,7 @@
 public class 2022_63eff {
-
+// eff: O(nk)= O(n) //
 public static void main(String[] args) {
+//driver//
 	    int a[]= {35 ,17 ,13 ,252 ,4 ,128 ,7 ,3 ,81};
       int k=10;
       sortmod(a, k);
