@@ -1,0 +1,27 @@
+public class 2021_70rec {
+	 
+public static void main(String[] args) {
+      //driver //
+		 int prices[]={0,1,3,10,9,10,17,17,20};
+	     int stick_length=prices.length-1;
+	     int cut_length=1;
+        System.out.println(findMaxPrices(prices,stick_length,cut_length));
+		  
+	}
+
+	private static int findMaxPrices(int[] prices, int stick_length, int cut_length ) {
+		
+		if(stick_length<0 || cut_length>prices.length-1) 
+		{
+			return Integer.MIN_VALUE;		 
+		}
+		 if (stick_length==0) 
+    	 {
+			 return 0;
+    	 }
+		
+		return Math.max(findMaxPrices(prices, stick_length-cut_length,cut_length )+prices[cut_length],
+				            findMaxPrices(prices, stick_length, cut_length+1)) ;
+	}
+ 
+}
