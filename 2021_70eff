@@ -1,0 +1,44 @@
+//eff: O(logn+m) 
+
+public class 2021_70eff {
+
+// driver //
+
+	       int a1[]= {12,13,18,30,45};
+	       int a2[]={1,12,15,26,38};
+	 System.out.println( getMedian (a1, a2)) ;
+	   
+	}
+
+	public static int getMedian(int []a1, int []a2){
+		if (a1.length > a2.length) {
+			return getMedian(a2, a1);
+		}
+		int m=a1.length;
+		int n=a2.length;
+		int total=n+m;
+		int L=0,R=m  ;
+		 
+		while (L<= R){
+			int mid1=(L+R)/2;
+			int mid2= (total+1)/2 - mid1;
+			
+			int a1left= (mid1 ==0) ? Integer.MIN_Va1LUE : a1[mid1-1];
+			int a1right= (mid1==m) ? Integer.Ma1X_Va1LUE : a1[mid1];	
+			int a2left = (mid2==0) ? Integer.MIN_Va1LUE : a2[mid2-1];
+			int a2right = (mid2==n) ? Integer.Ma1X_Va1LUE : a2[mid2];
+			
+			if((a1left <= a2right) && (a2left <= a1right)) { 
+			   if (total%2==0)
+			   {
+				return (  Math.max(a1left,a2left)+Math.min(a1right,a2right) )/2;
+			   }
+			   else return  Math.max(a1left,a2left);
+			}else if (a1left > a2right)
+				  R=mid1-1;
+			else 
+				  L=mid1+1;
+	} 
+		return -1;
+	}
+}
