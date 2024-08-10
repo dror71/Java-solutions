@@ -2,12 +2,12 @@ public class 2021_85rec {
 	 
 public static void main(String[] args) {
       //driver //
-		 
+
 	      int mat[][]= {
-	    		  {0,15 ,80,90},
-	    		  {-1,0,40,50},
-	    		  {-1,-1,0,70},
-	    		  {-1,-1,-1,0},
+	    		  {0, 15 ,80,90},
+	    		  {-1 ,0, 40, 50},
+	    		  {-1,-1,  0, 70},
+	    		  {-1,-1,-1  ,0},
 	      };
 	   System.out.println(minPrice(mat,0,1));
 	}
