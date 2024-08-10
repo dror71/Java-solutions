@@ -1,0 +1,22 @@
+ 
+
+//eff: O(log(n+n))~O(log(n))
+
+private static int [] findTrue(boolean[][] tmp,int aux []) {
+		int res[]=new int [2];
+		int Lx=0, Rx=tmp.length-1;
+		int Ly=0, Ry=tmp.length-1;
+		while (Ly<=Ry) {
+			int mid_y=(Ly+Ry)/2, mid_x=(Lx+Rx)/2;
+		    ask(aux,mid_x,mid_y);       // 'ask' is a given function to determine the relative distance from target //
+		    if (aux[1]==0) res[1]=mid_y;
+		    if (aux[1]==1) Ly=mid_y+1;
+		    else Ry=mid_y-1;
+		    if (aux[0]==0) res[0]=mid_x;
+		    if (aux[0]==1) Lx=mid_x+1;
+		    else Rx=mid_x-1;
+		       
+		} 
+		
+		return res;
+	}
