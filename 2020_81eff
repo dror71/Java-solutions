@@ -1,0 +1,33 @@
+public class 2020_81eff {
+	  //eff: O(n)  //
+	public static void main(String[] args) {
+      //driver //
+		
+	      int a[] = {10,4,2,5,6,3,8,1,5,9}; 
+	      int k=3;
+	     minimumSubk(a, k);
+	   
+}
+
+	private static void minimumSubk(int[] a, int k) {
+		int L=0,R=0,sum=0,MinSum=Integer.MAX_VALUE;
+		int L_min=0;
+		int R_min=0;
+		while  ( R<a.length ) {
+			while (R-L<k) {
+				sum+=a[R];
+				R++;
+			}
+			if (MinSum>sum) {
+				MinSum=sum;
+				L_min=L;
+				R_min=R-1;
+			}
+				sum-=a[L];
+		    	L++;
+			}
+		
+		System.out.println("Minimum sum sub-array is: ("+L_min+","+R_min+")" );
+	}
+
+}
