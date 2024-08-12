@@ -1,0 +1,79 @@
+public class 2020_84rec {
+	  
+	public static void main(String[] args) {
+      //driver //
+		
+	      char arr[][] = {
+	    		  {'t','z','x','c','d'},
+	    		  {'s','h','a','z','x'},
+	    		  {'h','w','l','f','m'},
+	    		  {'o','r','o','t','n'},
+	    		  {'a','b','m','i','n'},
+
+	      }; 
+	      String word="shalom";
+	      int track [][] = new int [arr.length][arr[0].length];
+	      findWord(arr, word, track);
+	       
+}
+
+	private static void findWord(char[][] arr, String word,int [][] track ) {
+		if (arr.length==0)
+		{
+			if (word.length()>0)
+				System.out.println("No such word");
+			
+		}
+		else {
+			boolean res = findWord(arr, word, track,0,0);
+			if (res) 
+				{
+					print(track);
+				}
+			else
+				System.out.println("No such word");
+		}
+			
+	}
+	
+	private static boolean findWord(char[][] arr, String word, int[][] track, int i, int j) {
+		if (i==arr.length) {
+			return false;
+		}
+		if (j==arr[0].length) {
+			return findWord(arr, word, track, i+1, 0);
+		}
+		boolean res=findWord(arr, word,i,j, track, 0);
+		if (res) return true;
+		return findWord(arr, word, track, i, j+1);
+	 
+	}
+
+	private static boolean findWord(char[][] arr, String word,int i, int j, int[][] track, int letter_count) {
+	
+		if ( word.length()== letter_count)  return true;
+		if(i<0 || i==arr.length || j<0 || j==arr.length) return false;
+		if (word.charAt(letter_count) != arr[i][j]) return false;
+				 
+		track[i][j]=++letter_count;
+		boolean r1 = findWord(arr, word, i+1, j, track, letter_count);
+		boolean r2 = findWord(arr, word, i, j+1, track, letter_count);
+		boolean r3 = findWord(arr, word, i-1, j, track, letter_count);
+		boolean r4 = findWord(arr, word, i, j-1, track, letter_count);
+		
+		if ( r1 || r2 || r3 || r4 ) return true;
+		track[i][j]=0;
+		return false;
+	}
+	private static void print(int[][] track) {
+		for (int i=0;i<track.length;i++) {
+			for (int j=0;j<track.length;j++) {
+				System.out.print(track[i][j]+" ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+		
+	}
+ 
+}
