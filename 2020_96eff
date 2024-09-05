@@ -1,0 +1,50 @@
+class Range
+{
+private int _small, _big;
+public Range(int s, int b)
+{
+	_small = s;
+	_big = b;
+}
+public int getSmall() {
+	return _small;
+}
+public int getBig() {
+	return _big;
+}
+}
+
+public class 2020_96eff {
+  // eff: O(log(n))
+	
+	public static void main(String[] args) {
+      //driver //
+		Range rangeA[] = new Range[4];
+		rangeA[0]= new Range(-7,-3);
+		rangeA[1]= new Range(-2,-2);
+		rangeA[2]= new Range(-1,6);
+	  rangeA[3]= new Range(20,22);
+		 
+		System.out.println(minimalPositive(rangeA)); 
+	
+
+	}
+	public static int minimalPositive (Range[] rangeA) {
+		int left=0,right=rangeA.length-1, mid=0;
+		while (left<= right) {
+			mid = (left+right)/2;
+			if (rangeA[mid].getBig()<0) {
+				left=mid+1;
+			}
+			else  {
+					if (rangeA[mid].getSmall()<0) return 1;
+					else if (rangeA[mid].getSmall()>=0) return rangeA[mid].getSmall();
+					else			
+						{
+							right=mid-1 ;
+						}
+		}
+		}
+		return -1;
+	}
+ }
