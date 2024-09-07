@@ -1,0 +1,34 @@
+public class 2019_85eff {
+
+	// eff: log(n) time  O(1) space
+	public static void main(String[] args) {
+      //driver //
+
+		// int arr[]= { 7,13,16,19,22 };
+		//int arr[]= { -3 ,-11,-15};
+		  int arr[]= {-2 ,2,6,10 ,18};
+		  int miss_val= missingValue(arr);
+		  if (miss_val==0) System.out.println("no missing value in series");
+		   else
+			   System.out.println(miss_val);
+	}
+
+	private static int missingValue(int[] arr) {
+		
+		int d=0, left=0,right=arr.length-1,mid=0,a0=arr[0];
+		
+		int d1 = arr[1]-a0, d2=arr[2]-arr[1];
+		if (Math.abs(d1)>Math.abs(d2)) 
+			return d2+a0;
+		else 
+			d=d1;
+		
+		while (mid*d+a0==arr[mid]) {
+			
+			if (left>right) return 0;
+			mid = (left+right)/2;
+			left = mid+1;
+			 
+		}
+		return (mid)*d+a0;
+	}
