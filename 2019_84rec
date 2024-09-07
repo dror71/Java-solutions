@@ -1,0 +1,17 @@
+public class 2019_84rec {
+
+	
+	public static void main(String[] args) {
+      //driver //
+		int num = 38;
+		System.out.println(sumPower3(num,0));
+	}
+	
+	public static boolean sumPower3(int num,int i) {
+		 
+		if (num==0) return true;
+		if (num<0 || i>(int)Math.sqrt(num)) return false;
+		
+		return sumPower3(num-(int)Math.pow(3, i),i+1)
+				 ||  sumPower3(num ,i+1);
+	}
