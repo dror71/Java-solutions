@@ -1,0 +1,34 @@
+public class 2019_93eff {
+
+	 // eff: O(n)+O(n)+O(2n) = O(n) 
+	 
+ 	public static void main(String[] args) {
+      //driver //
+		
+		int road1 [] = {5, 4, 5, 8, 12, 9, 9, 3};    
+		int road2 []= {7 ,3, 3, 12, 10, 2, 10, 7};    
+		 
+		System.out.println(shortestRoad(road1,road2));
+     
+	}
+	
+	private static int shortestRoad(int[] road1, int[] road2) {
+		int sum1=0;
+		int sum2=0;
+		
+		for (int i=0;i< road1.length;i++)
+		{
+			sum1+=road1[i];     // O(n)
+			sum2+=road2[i];      // O(n)
+		}
+		int shortest = Math.min(sum1,sum2);
+		
+		for (int i=0;i<road1.length;i++)      // O(2n)
+		{
+		
+		sum1 = sum1 - road1[i]+road2[i];
+		sum2 = sum2 - road2[i]+road1[i];
+		shortest= Math.min(shortest,Math.min(sum1,sum2));
+		}
+		return shortest;
+	}
