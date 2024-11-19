@@ -1,0 +1,61 @@
+package tests2;
+
+public class SummerB2024 {
+//eff O(n)+O(n)=O(n)
+
+	public static void main(String[] args) {
+		  
+		//int arr1[]= {4,-5,-3,1,2,7,9,0};
+		int arr1[]= {4,-5,-3,1,2,7,0};
+		int med = 1;	
+		wigglyArr(arr1,med);
+			
+			    }
+
+			    private static void wigglyArr(int[] arr1, int med) {
+			    	
+			    	int len = arr1.length;
+			    	/// arranging the array around the median
+			    	 rearrangeAroundMedian(arr1, med);
+				    
+				    	System.out.print("array arranged: " );
+				    	print_arr(arr1);
+
+				    	createWigglyPattern(arr1);
+				    	print_arr(arr1);
+	}
+
+				private static void createWigglyPattern(int[] arr1) {
+					int n = arr1.length;
+			        int back = (n % 2 == 0) ? n - 1 : n - 2;
+			        for (int i = 0; i < n / 2; i += 2) {
+			            // Swap elements to create a wiggly pattern
+			            int temp = arr1[i];
+			            arr1[i] = arr1[back];
+			            arr1[back] = temp;
+			            back -= 2;
+			        }
+				}
+
+				private static void rearrangeAroundMedian(int[] arr1, int med) {
+					int len=arr1.length;
+					int back = len-1;
+					for (int i=0;i<len/2  ;i++) {
+			    		while (arr1[i]>=med ) {
+			    			int temp = arr1[i];
+			    			arr1[i ]=arr1[back ];
+			    			arr1[back ] = temp;
+			    			--back;
+			    		}
+			    	}
+				}
+
+				public static void print_arr(int []arr1) {
+					        for (int num : arr1) {
+					            System.out.print(num + ",");
+					        }
+					        System.out.println();
+					    }
+	}
+
+ 
